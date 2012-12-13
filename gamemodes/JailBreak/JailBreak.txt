@@ -1,7 +1,7 @@
 "Gamemode"
 {
-	"name"		"JailBreak"
-	"version"	"1"
+	"title"		"JailBreak"
+	"version"	"Gmod13, Pre-Alpha 0.1"
 
 	"author_name"	"Excl (_NewBee)"
 	"author_email"	""
