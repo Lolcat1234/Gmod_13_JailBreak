@@ -96,7 +96,7 @@ CreateCharacter(GUARD, "Some", "Random",  "Guard", "excljailbreak/clark3", "excl
 end);
 
 if SERVER then
-	function _R.Player:SynchCharacter()
+	debug.getregistry()
 		umsg.Start("JBSYC",self);
 
 		local c;

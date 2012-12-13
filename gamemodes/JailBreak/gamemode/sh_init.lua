@@ -42,19 +42,19 @@ end
 
 --Automate including
 local function JBInitVGUI()
-	for k,v in pairs(file.FindInLua("JailBreak/gamemode/vgui/*.lua")) do
+	for k,v in pairs(file.Find("JailBreak/gamemode/vgui/*.lua","LUA" )) do
 		JBInclude(v, "vgui/", "cl");
 	end
 end
 
 local function JBInitCore()
-	for k,v in pairs(file.FindInLua("JailBreak/gamemode/core/*.lua")) do
+	for k,v in pairs(file.Find("JailBreak/gamemode/core/*.lua","LUA" )) do
 		JBInclude(v, "core/");
 	end
 end
 
 local function JBInitUtil()
-	for k,v in pairs(file.FindInLua("JailBreak/gamemode/util/*.lua")) do
+	for k,v in pairs(file.Find("JailBreak/gamemode/util/*.lua","LUA" )) do
 		JBInclude(v, "util/");
 	end
 end

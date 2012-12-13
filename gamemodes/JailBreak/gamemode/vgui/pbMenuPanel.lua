@@ -1,4 +1,9 @@
-surface.CreateFont ("Chinese Rocks rg", 40, 200, true, false, "pbTitleFont") --unscaled
+surface.CreateFont( "pbTitleFont", {
+	font       = "Chinese Rocks rg",
+	size       = 40,
+	weight     = 200,
+	antialias  = true,
+} )
 local PNL = { }
 
 function PNL:Init()

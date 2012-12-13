@@ -1,10 +1,34 @@
 local x,y = -1000,-1200
-surface.CreateFont ("Chinese Rocks rg", 128, 400, true, false, "JailBreakTitleFont")
-surface.CreateFont ("Chinese Rocks rg",60, 400, true, false, "JailBreakTitleFontLevel2") -- for when the name is too large
-surface.CreateFont ("Chinese Rocks rg", 100, 400, true, false, "JailBreakTitleFontSmall")
-surface.CreateFont ("Chinese Rocks rg", 40, 400, true, false, "JailBreakTitleFontSmallest")
-
-surface.CreateFont ("Sports Jersey", 100, 400, true, false, "JailbreakMenuThingMainButton")
+surface.CreateFont( "JailBreakTitleFont", {
+	font        = "Chinese Rocks rg",
+	size        = 128,
+	weight      = 400,
+	antialias   = true,
+} ) 
+surface.CreateFont( "JailBreakTitleFontLevel2", {
+	font        = "Chinese Rocks rg",
+	size        = 60,
+	weight      = 400,
+	antialias   = true,
+} ) 
+surface.CreateFont( "JailBreakTitleFontSmall", {
+	font        = "Chinese Rocks rg",
+	size        = 100,
+	weight      = 400,
+	antialias   = true,
+} ) 
+surface.CreateFont( "JailBreakTitleFontSmallest", {
+	font        = "Chinese Rocks rg",
+	size        = 40,
+	weight      = 400,
+	antialias   = true,
+} ) 
+surface.CreateFont( "JailbreakMenuThingMainButton", {
+	font        = "Sports Jersey",
+	size        = 100,
+	weight      = 400,
+	antialias   = true,
+} ) 
 -- entity -1585.3541 -359.9099 165.6040
 -- cam -1581.458496 -396.353424 222.742065;setang 0.340060 89.003883 0.000000
 

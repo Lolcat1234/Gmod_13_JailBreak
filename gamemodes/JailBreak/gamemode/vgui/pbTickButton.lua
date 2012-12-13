@@ -1,6 +1,11 @@
 -- pbTickButton
 
-surface.CreateFont ("Sports Jersey", 22, 400, true, false, "pbSelButFont");
+surface.CreateFont( "pbSelButFont", {
+	font        = "Sports Jersey",
+	size        = 22,
+	weight      = 400,
+	antialias   = true,
+} ) 
 
 local BUTTON = {}
 function BUTTON:Init()

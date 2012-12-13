@@ -161,7 +161,12 @@ if SERVER then
 		return false;
 	end
 elseif CLIENT then
-	surface.CreateFont( "akbar", 128, 500, true, true, "HugeFont" )
+	surface.CreateFont( "akbar", {
+	font        = "HugeFont",
+	size        = 22,
+	weight      = 400,
+	antialias   = true,
+} ) 
 
 
 	local BackgroundTId = surface.GetTextureID("prisonbreak/background_texture"); --Texture ID

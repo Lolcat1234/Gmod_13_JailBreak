@@ -10,7 +10,12 @@ end
 
 -- Stolen from EXCLCentre -- by JB
 
-surface.CreateFont ("Steelfish Rg", 28, 400, true, false, "NicknameFont")
+surface.CreateFont( "NicknameFont", {
+	font        = "Steelfish Rg",
+	size        = 22,
+	weight      = 400,
+	antialias   = true,
+} ) 
 
 local clamp,sin,cos,rad =math.Clamp,math.sin,math.cos,math.rad;
 local deg2rad = math.pi / 180;
