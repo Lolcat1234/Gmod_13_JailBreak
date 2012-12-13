@@ -1,0 +1,23 @@
+"Gamemode"
+{
+	"name"		"JailBreak"
+	"version"	"1"
+
+	"author_name"	"Excl (_NewBee)"
+	"author_email"	""
+	"author_url"	"facepunch (_NewBee)"
+	
+	"icon"		""
+	"info"		""
+	"hide"		""
+
+	
+	"mappattern"
+	{
+		"1"	"^pb_"
+		"2"	"^jb_"
+		"3"	"^ba_jail_"
+		"4"	"^ba_prison_"
+		"5"	"^rp_jail_"
+	}
+}

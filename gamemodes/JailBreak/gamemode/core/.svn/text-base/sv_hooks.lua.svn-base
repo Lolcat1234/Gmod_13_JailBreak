@@ -1,0 +1,32 @@
+-- sv_hooks.lua
+-- for all hooks that have nothing to do with the player
+
+function JB:GetGameDescription() 
+ 	return "JailBreak"; 
+end
+
+function JB:InitPostEntity()
+	local e = ents.Create("jb_previewmodel");
+	e:SetPos(Vector(-1600, -360, 165.6040));
+	e:SetAngles(Angle(0,270,0));
+	e:Spawn();
+	
+	local e = ents.Create("jb_previewmodel");
+	e:SetPos(Vector(-1397, -360, 190));
+	e:SetAngles(Angle(0,235,0));
+	e:Spawn();
+	
+	local e = ents.Create("prop_physics_multiplayer");
+	e:SetModel("models/hunter/plates/plate8x8.mdl");
+	e:SetPos(Vector( -1500, -353, 150))
+	e:SetAngles(Angle(0,0,90));
+	e:AddEffects(EF_NOSHADOW);
+	e:SetColor(0,0,0,0)
+	e:Spawn();
+	e:SetMoveType(MOVETYPE_NONE);
+	local phys = e:GetPhysicsObject()
+	if phys:IsValid() then
+		phys:EnableMotion(false)
+	end
+	e:Activate();
+end

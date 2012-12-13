@@ -1,0 +1,106 @@
+-- sh_characters
+
+JB.Characters = {Guard = {}, Prisoner = {}};
+
+local translationTbl = {};
+translationTbl["models/Humans/Group01/Male_08.mdl"] = "models/player/Group01/Male_08.mdl";
+translationTbl["models/Humans/Group01/Male_01.mdl"] = "models/player/Group01/Male_01.mdl";
+translationTbl["models/Humans/Group01/Male_05.mdl"] = "models/player/Group01/Male_05.mdl";
+translationTbl["models/Humans/Group01/Male_04.mdl"] = "models/player/Group01/Male_04.mdl";
+translationTbl["models/Kleiner.mdl"] = "models/player/Kleiner.mdl";
+translationTbl["models/barney.mdl"] = "models/player/barney.mdl";
+translationTbl["models/police.mdl"] = "models/player/police.mdl";
+
+function JB:TranslateModel(m)
+	return (translationTbl[m] or "models/player/Group01/Male_08.mdl");
+end
+
+local GUARD = 1;
+local PRISONER = 2;
+local function CreateCharacter(side, name, nick, surname, img1, img2, img3, model, background, OnSpawn)
+	if CLIENT then
+		img1 = surface.GetTextureID(img1);
+		img2 = surface.GetTextureID(img2);
+		img3 = surface.GetTextureID(img3);
+	end
+
+	util.PrecacheModel(model);
+	
+	if side == GUARD then
+		JB.Characters.Guard[#JB.Characters.Guard+1] = {name=name, nick=nick, surname=surname, img1=img1, img2=img2, img3=img3, model=model, background=background, OnSpawn=OnSpawn}
+	elseif side == PRISONER then
+		JB.Characters.Prisoner[#JB.Characters.Prisoner+1] = {name=name, nick=nick, surname=surname, img1=img1, img2=img2, img3=img3, model=model, background=background, OnSpawn=OnSpawn}
+	end
+end
+
+CreateCharacter(PRISONER, "Clark", "Aide", "Manlov", "excljailbreak/clark1", "excljailbreak/clark2", "excljailbreak/clark3","models/Humans/Group01/Male_08.mdl", 
+[[Clark Manlov, of the Manlov family has always been a curious boy.
+On the age of 19 Clark felt strong urges to molest children, he has been able to control his urges, but recently the true Clark has come out. 
+
+Unfortunatly for Clark FBI monitored him while he was chatting with little boys online under his nickname Aide. 
+After a raid on his house he has been found guilty of being a pedophile. 
+
+Clark is slowly starting to get insain in this prison...]], function(p)
+	
+end);
+
+CreateCharacter(PRISONER, "Kevin", "Liquid", "White", "excljailbreak/placeholder", "excljailbreak/placeholder", "excljailbreak/placeholder","models/Humans/Group01/Male_01.mdl", 
+[[Kevin White has been raised by a ritch family in the united states. When Kevin was 10 he found out that his parents were white and he was black, so he just had to stab them over and over again. 
+To his suprise, this appeared to be illegal. He escaped to Canada before he could be caught where he blew up a hospital and stabbed 4 random white people.
+
+While in prison Kevin has developed feelings for men. He always dreams about his love, Aide, but he can't tell him how he feels about him, because it appears that he likes little kids.]], function(p)
+	
+end);
+
+CreateCharacter(PRISONER, "Bob", "Pennies", "Anusorn", "excljailbreak/bob1", "excljailbreak/bob2", "excljailbreak/bob3","models/Humans/Group01/Male_05.mdl", 
+[[Nobody knows Bob Anusorn's real story, rumors say that he jammed a penny through a cop's eye. Bob is very quiet,yet violent. 
+
+Bob often escapes prison, but then comes back the next day without the guards even knowing, as if he has nowhere else to go.
+Little curious is that bob is always smiling when he comes back to the prison, the other prisoners say, he also brings a ringing bag.
+
+Bob is probrably the most mysterious prisoner here. He is mostly alone in the shadow.]], function(p)
+
+end);
+
+CreateCharacter(PRISONER, "Xavier", "Neko",  "Mirabelle", "excljailbreak/placeholder", "excljailbreak/placeholder", "excljailbreak/placeholder","models/Humans/Group01/Male_04.mdl", 
+[[Xavier Mirabelle A strong young fellow who would horde cats into his house and live with them untill suddenly he snapped and went into a rampage and destoryed his own house and killed serval cats in the process landing him a Ticket in jail, He really misses his cats.
+
+Other prisoners discribe Neko (as he is known by the prisoners) as pretty damn wierd.
+
+]], function(p)
+
+end);
+CreateCharacter(PRISONER, "Elliot", "Science",  "Kwaque", "excljailbreak/placeholder", "excljailbreak/placeholder", "excljailbreak/placeholder","models/Kleiner.mdl", 
+[[Elliot Kwaque is a nerd. That's why they locked him up in prison
+
+HG are niggers
+]], function(p)
+
+end);
+
+
+
+
+
+
+
+
+
+
+
+CreateCharacter(GUARD, "Joe", "Bones",  "McFrogton", "excljailbreak/placeholder", "excljailbreak/placeholder", "excljailbreak/placeholder","models/barney.mdl", 
+[[Joe is not black, so they let him guard prisoners.
+
+Joe prefers the Ak74 and p228, these are his standard weapons.
+]], function(p)
+	p:Give("jb_primary_ak74");
+	p:Give("jb_secondary_p228");
+	p:SelectWeapon("jb_primary_ak74");
+end);
+CreateCharacter(GUARD, "Laka", "Authism",  "Hufione", "excljailbreak/placeholder", "excljailbreak/placeholder", "excljailbreak/placeholder","models/police.mdl", 
+[[Laka likes your fingernails.
+]], function(p)
+	p:Give("jb_primary_mp5");
+	p:Give("jb_secondary_p228");
+	p:SelectWeapon("jb_primary_mp5");
+end);

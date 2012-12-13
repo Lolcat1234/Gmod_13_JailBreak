@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/JailBreak/!svn/ver/51/trunk/gamemode
+END
+cl_init.lua
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/cl_init.lua
+END
+init.lua
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/init.lua
+END
+sh_init.lua
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/sh_init.lua
+END

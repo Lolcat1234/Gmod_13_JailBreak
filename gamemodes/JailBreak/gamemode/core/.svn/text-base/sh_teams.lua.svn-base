@@ -1,0 +1,62 @@
+TEAM_PRISONER = 1;
+TEAM_GUARD = 2;
+TEAM_PRISONER_DEAD = 3;
+TEAM_GUARD_DEAD = 4;
+--Below is anti-typo
+TEAM_PRISONERS = 1;
+TEAM_GUARDS = 2;
+TEAM_PRISONERS_DEAD = 3;
+TEAM_GUARDS_DEAD = 4;
+TEAM_SPECTATORS = TEAM_SPECTATOR;
+
+--SetUpteams
+team.SetUp (TEAM_PRISONER,"Prisoners",Color(255,61,61,255));
+team.SetSpawnPoint( TEAM_PRISONER, "info_player_terrorist" );
+team.SetUp (TEAM_GUARD,"Guards",Color(0,128,255,255));
+team.SetSpawnPoint( TEAM_GUARD, "info_player_counterterrorist" );
+team.SetUp (TEAM_PRISONER_DEAD,"Dead Prisoners",Color(210,0,0,255));
+team.SetUp (TEAM_GUARD_DEAD,"Dead Guards",Color(0,80,200,255));
+team.SetUp (TEAM_SPECTATOR,"Spectators",Color(255,228,122,255));
+
+--Hooks
+function GM:PlayerJoinTeam() return false end
+function GM:PlayerRequestTeam() return false end
+
+--Functions
+local MaxGuardFactor = 0.40; --This means that the number of prisoners will be multiplied by this factor.
+local max_g = 1;
+local max_p = 1;
+function JB:CreateTeamLimits()
+	local n= #team.GetPlayers(TEAM_PRISONER) or 0;
+	n= n+(#team.GetPlayers(TEAM_GUARD) or 0);
+	n= n+(#team.GetPlayers(TEAM_GUARD_DEAD) or 0);
+	n= n+(#team.GetPlayers(TEAM_PRISONER_DEAD) or 0);
+	max_g= math.Round((n*MaxGuardFactor));
+	max_p= math.Round((n-max_g));
+	if n <= 0 then
+		max_g = 1;
+		max_p = 1;
+		return;
+	end
+end
+
+function _R.Player:CanJoinTeam(t)
+	JB:CreateTeamLimits()
+	if(t==TEAM_SPECTATOR)then 
+		return true; 
+	elseif(t==TEAM_GUARD_DEAD)then
+		local n= (#team.GetPlayers(TEAM_GUARD)+#team.GetPlayers(TEAM_GUARD_DEAD)) or 0;
+		if n>=max_g then
+			return false;
+		end
+		return true;
+	elseif(t==TEAM_PRISONER_DEAD)then
+		local n= (#team.GetPlayers(TEAM_PRISONER)+#team.GetPlayers(TEAM_PRISONER_DEAD)) or 0;
+		if n>=max_p then
+			return false;
+		end
+		return true;
+	end
+	JB:DebugPrint("Error: Player tried to join team but team is not valid for joining ("..t..")");
+	return false;
+end

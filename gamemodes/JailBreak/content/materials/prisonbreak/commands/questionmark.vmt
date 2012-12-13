@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "prisonbreak/commands/questionmark"
+	"$nolod" 1
+	"$translucent" 1
+}

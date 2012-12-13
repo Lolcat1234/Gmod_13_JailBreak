@@ -1,0 +1,30 @@
+-- sv_player_cmds
+
+concommand.Add("jb_menu_gocharacterpos",function(p)
+	if p:Team() ~= TEAM_SPECTATOR or p.MenuMoveDone then return end
+	p.MenuMoveDone = true;
+	p:SetPos(Vector(-1582.962158, -399.830292, 215.954926)-Vector(0,0,64));
+end)
+
+concommand.Add("jb_menu_selectcharacter",function(p,c,a)
+	if p:Team() ~= TEAM_SPECTATOR or p.character then JB:DebugPrint("Failed to create character. Character already set."); return end
+	
+	local t,c = a[1],tonumber(a[2]);
+	if not t or not c then JB:DebugPrint("Failed to create character. Args are invalid; "..t.."; "..c); return end
+	
+	JB:DebugPrint("Player has selected character");
+	
+	local n;
+	if t == "guard" then
+		n = TEAM_GUARD_DEAD;
+		c = JB.Characters.Guard[c];
+	else
+		n = TEAM_PRISONER_DEAD;
+		c = JB.Characters.Prisoner[c];
+	end
+	p:SetTeam(n);
+	p.character = c;
+	
+	umsg.Start("JCMM",p); umsg.End(); -- disable the main menu;
+	JB:CheckRoundEnd()
+end)

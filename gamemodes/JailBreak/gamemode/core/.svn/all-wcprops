@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/JailBreak/!svn/ver/51/trunk/gamemode/core
+END
+sv_resource.lua
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/core/sv_resource.lua
+END
+sh_teams.lua
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/JailBreak/!svn/ver/46/trunk/gamemode/core/sh_teams.lua
+END
+sh_rounds.lua
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/JailBreak/!svn/ver/51/trunk/gamemode/core/sh_rounds.lua
+END
+sv_player_hooks.lua
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/JailBreak/!svn/ver/49/trunk/gamemode/core/sv_player_hooks.lua
+END
+sh_characters.lua
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/JailBreak/!svn/ver/48/trunk/gamemode/core/sh_characters.lua
+END
+sv_console.lua
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/core/sv_console.lua
+END
+sv_player_cmds.lua
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/JailBreak/!svn/ver/46/trunk/gamemode/core/sv_player_cmds.lua
+END
+sv_player_meta.lua
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/JailBreak/!svn/ver/47/trunk/gamemode/core/sv_player_meta.lua
+END
+sh_entity_meta.lua
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/core/sh_entity_meta.lua
+END
+cl_player_hooks.lua
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/core/cl_player_hooks.lua
+END
+sh_hooks.lua
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/core/sh_hooks.lua
+END
+cl_spawnmenu.lua
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/JailBreak/!svn/ver/49/trunk/gamemode/core/cl_spawnmenu.lua
+END
+sv_hooks.lua
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/JailBreak/!svn/ver/35/trunk/gamemode/core/sv_hooks.lua
+END
+sh_player_meta.lua
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/JailBreak/!svn/ver/52/trunk/gamemode/core/sh_player_meta.lua
+END
+cl_hud.lua
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/JailBreak/!svn/ver/48/trunk/gamemode/core/cl_hud.lua
+END

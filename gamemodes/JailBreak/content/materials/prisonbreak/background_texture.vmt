@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "prisonbreak/background_texture"
+	"$nolod" 1
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/jb_banner"
+	"$nolod" 1
+}

@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "prisonbreak/commands/lineup"
+	"$nolod" 1
+	"$translucent" 1
+}

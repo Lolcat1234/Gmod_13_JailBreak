@@ -1,0 +1,4 @@
+-- sv_console
+
+RunConsoleCommand("sv_airaccelerate", 200);
+RunConsoleCommand("sv_alltalk", 1);

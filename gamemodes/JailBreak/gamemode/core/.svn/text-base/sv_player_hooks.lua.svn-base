@@ -1,0 +1,124 @@
+-- sv_player_hooks
+
+function JB:PlayerSpawn(p)
+	p:AddEffects(EF_NOSHADOW) -- shadows are pretty god damn ugly in garrysmod.
+	if (p:IsGuard() or p:IsPrisoner()) then
+		p:SetMoveType(MOVETYPE_WALK);
+	else
+		JB:DebugPrint("No character set, opening main menu.");
+	
+		umsg.Start("JOMM",p); --JailBreak open MainMenu
+		umsg.End();
+		p:SetTeam(TEAM_SPECTATOR);
+		p:SetMoveType(MOVETYPE_NONE);
+		p:SetPos(Vector(-1419.506470, -399.830292, 243.897842)-Vector(0,0,64));
+		p.character = nil;
+	end	
+end
+
+function JB:PlayerDeath( p, a, d )
+	if p:IsPrisoner() then
+		p:SetTeam(TEAM_PRISONER_DEAD)
+		if p:Alive() then
+			p:KillSilent()
+		end
+	elseif p:IsGuard() then -- or we simply check it.
+		p:SetTeam(TEAM_GUARD_DEAD)
+		if p:Alive() then
+			p:KillSilent()
+		end
+	end
+	JB:CheckRoundEnd()
+end
+
+function JB:PlayerShouldTakeDamage( p, a )
+	if p:IsPlayer() and a:IsPlayer() then
+		if p:Team() == a:Team() then
+			return false
+		else
+			return true
+		end
+	else
+		return true
+	end
+end
+
+function JB:GetFallDamage( ply, speed )
+	return (speed/8);
+end
+
+function JB:ShowHelp(p)
+	return false;
+end
+
+function JB:ShowTeam(p)
+	return false;
+end
+
+function JB:ShowSpare1(p)
+	return false;
+end
+
+function JB:ShowSpare2(p)
+	return false;
+end
+
+function JB:PlayerSwitchFlashlight()
+	return false;
+end
+
+function JB:CanPlayerSuicide(p)
+	if( p:Team() == TEAM_UNASSIGNED or p:Team() == TEAM_SPECTATOR or p:Team() == TEAM_PRISONER_DEAD or p:Team() == TEAM_GUARD_DEAD ) then
+		return false;
+	end
+
+	return true;
+end 
+
+function JB:PlayerUse( p )
+	return (p:Team() == TEAM_GUARD or p:Team() == TEAM_PRISONER);
+end
+
+function JB:PlayerCanPickupWeapon( p, wep ) -- edited your code a little clark <3
+	if (p:Team() ~= TEAM_GUARD and p:Team() ~= TEAM_PRISONER) 
+	or (p:HasPrimary() and wep:IsPrimary()) 
+	or (p:HasSecondary() and wep:IsSecondary()) then 
+		return false
+	end
+	return true
+end
+
+function JB:AllowPlayerPickup( p, ent )
+	if p:Team() == TEAM_GUARD or p:Team() == TEAM_PRISONER then
+		return true
+	end
+	return false
+end
+
+function JB:KeyPress( p, k )
+	if k ~= IN_ATTACK or k ~= IN_ATTACK2 or k ~= IN_DUCK or k ~= IN_JUMP then return end
+	if p:HasChoosen() then
+		if !p:Team() == TEAM_GUARD or !p:Team() == TEAM_PRISONER then
+			local AlivePlayers = team.GetPlayers(TEAM_GUARD) + team.GetPlayers(TEAM_PRISONER);
+			local player = table.Random(AlivePlayers);
+			if k == IN_ATTACK then
+				p:Spectate( OBS_MODE_CHASE );
+				p:SpectateEntity( player );
+			elseif k == IN_ATTACK2 then
+				p:Spectate( OBS_MODE_CHASE );
+				p:SpectateEntity( player );
+			end
+			if k == IN_DUCK then
+				p:Spectate( OBS_MODE_CHASE );
+			elseif k == IN_JUMP then
+				p:Spectate( OBS_MODE_IN_EYE );
+			end
+		end
+	end
+end
+
+function JB:PlayerDisconnected( p )
+	if not p:IsPrisoner() or not p:IsGuard() then return end-- don't need to check round status when their spectator.
+	
+	JB:CheckRoundEnd();
+end
