@@ -3,7 +3,7 @@
 
 local mapConfig = {};
 function JB:LoadMapConfig()
-	mapConfig = (glon.decode(file.Read("jailbreak3/"..game.GetMap()..".txt")) or {});
+	mapConfig = (glon.decode(file.Read("jailbreak3/"..game.GetMap()..".txt")) or {}); -- Need a substitute for glon beacause it was removed
 end
 
 function JB:SpawnMapConfig()
