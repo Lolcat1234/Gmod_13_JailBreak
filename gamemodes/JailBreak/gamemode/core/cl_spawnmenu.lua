@@ -253,13 +253,7 @@ tblFonts["BudgetLabel"] = {
     weight = 400,
     outline = true,
 }
- 
- 
-for k,v in SortedPairs( tblFonts ) do
-    surface.CreateFont( k, tblFonts[k] );
- 
-    --print( "Added font '"..k.."'" );
-end
+
 surface.CreateFont( "JailBreakTitleFont", {
 	font        = "Chinese Rocks rg",
 	size        = 128,
